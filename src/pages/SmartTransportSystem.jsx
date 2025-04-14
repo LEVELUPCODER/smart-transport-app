@@ -2,7 +2,9 @@ import { Card, CardContent } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 
 import { useState } from "react";
-import { MapPin, Bus, Ambulance, Thermometer, QrCode } from "lucide-react";
+// import { MapPin, Bus, Ambulance, Thermometer, QrCode } from "lucide-react";
+import { MapPin, Bus, Thermometer, QrCode, Siren } from "lucide-react";
+
 
 export default function SmartTransportSystem() {
   const [busStatus, setBusStatus] = useState("");
@@ -44,7 +46,9 @@ export default function SmartTransportSystem() {
         <Card className="shadow-xl rounded-2xl p-4">
           <CardContent>
             <div className="flex items-center gap-4 mb-4">
-              <Ambulance size={36} className="text-red-500" />
+      
+              <Siren size={36} className="text-red-500" />
+
               <h2 className="text-xl font-semibold">Emergency Ambulance</h2>
             </div>
             <input
