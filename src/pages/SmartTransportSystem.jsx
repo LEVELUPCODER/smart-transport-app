@@ -73,7 +73,7 @@ export default function SmartTransportSystem() {
             <li>Hostel I - 8:00 AM - Chandil Dam</li>
               <li>Hostel D - 8:15 AM - Ghamharia</li>
               <li>Hostel J - 8:30 AM - Bistupur</li>
-              <li>Hostel K - 8:45 AM - Sakshi</li>
+              <li>Hostel K - 8:45 AM - Sakchi</li>
             </ul>
           </CardContent>
         </Card>
