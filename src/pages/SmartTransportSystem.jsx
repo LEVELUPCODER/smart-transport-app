@@ -92,7 +92,7 @@ export default function SmartTransportSystem() {
 
       {/* Footer */}
       <footer className="mt-10 text-sm text-gray-600">
-        <MapPin className="inline mr-1" size={16} /> Developed by AMIT CHANCHAL (CSE Students), NIT Jamshedpur
+        <MapPin className="inline mr-1" size={16} /> Developed by AMIT CHANCHAL (CSE Student), NIT Jamshedpur
       </footer>
     </div>
   );
