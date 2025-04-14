@@ -84,7 +84,7 @@ export default function SmartTransportSystem() {
             <QrCode size={48} className="text-blue-700 mb-2" />
             <p className="text-center text-sm text-gray-700">Scan QR Code at bus entry point to validate your ID</p>
             <div className="mt-2 w-32 h-32 bg-gray-300 flex items-center justify-center rounded">
-              <span className="text-sm text-gray-600"><img src="/public/qr.jpg " alt="QR Code" /></span>
+              <span className="text-sm text-gray-600"><img src="qr.jpg" alt="QR Code" /></span>
             </div>
           </CardContent>
         </Card>
