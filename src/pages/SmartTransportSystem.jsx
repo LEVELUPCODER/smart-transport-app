@@ -1,20 +1,26 @@
 import { Card, CardContent } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
-
 import { useState } from "react";
-// import { MapPin, Bus, Ambulance, Thermometer, QrCode } from "lucide-react";
 import { MapPin, Bus, Thermometer, QrCode, Siren } from "lucide-react";
 
-
 export default function SmartTransportSystem() {
-  const [busStatus, setBusStatus] = useState("");
+  const [busStatus, setBusStatus] = useState("Not Available");
+  const [busLocation, setBusLocation] = useState("");
+  const [seatCapacity, setSeatCapacity] = useState("");
   const [ambulanceRequested, setAmbulanceRequested] = useState(false);
   const [location, setLocation] = useState("");
-  const [availableSeats] = useState(14);
-  const [temperature] = useState(28);
+
+  const temperature = 28; // fixed value, for demo
+  const locations = ["Golchakkar", "Parking", "Bistupur", "Near P&M Mall"];
 
   const handleBusCheck = () => {
-    setBusStatus("GOLCHAKKAR");
+    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+    const seats = Math.floor(Math.random() * 50);
+    const status = seats === 0 ? "Full" : `${seats} Seats Available`;
+
+    setBusLocation(randomLocation);
+    setSeatCapacity(status);
+    setBusStatus(`Bus currently at ${randomLocation} — ${status}`);
   };
 
   const handleAmbulanceRequest = () => {
@@ -35,8 +41,7 @@ export default function SmartTransportSystem() {
               <Bus size={36} className="text-blue-600" />
               <h2 className="text-xl font-semibold">College Bus Tracker</h2>
             </div>
-            <p className="mb-2">Seating Capacity: {availableSeats} seats available</p>
-            <p className="mb-2 flex items-center gap-2"><Thermometer size={20}/> Temperature: {temperature}°C</p>
+            <p className="mb-2 flex items-center gap-2"><Thermometer size={20} /> Temperature: {temperature}°C</p>
             <Button onClick={handleBusCheck}>Check Bus Status</Button>
             {busStatus && <p className="mt-3 text-green-700 blink">{busStatus}</p>}
           </CardContent>
@@ -46,9 +51,7 @@ export default function SmartTransportSystem() {
         <Card className="shadow-xl rounded-2xl p-4">
           <CardContent>
             <div className="flex items-center gap-4 mb-4">
-      
               <Siren size={36} className="text-red-500" />
-
               <h2 className="text-xl font-semibold">Emergency Ambulance</h2>
             </div>
             <input
@@ -70,10 +73,10 @@ export default function SmartTransportSystem() {
           <CardContent>
             <h2 className="text-xl font-semibold mb-4">Trip Schedule</h2>
             <ul className="list-disc pl-4 space-y-2 text-gray-700">
-            <li>Hostel I - 8:00 AM - Chandil Dam</li>
-              <li>Hostel D - 8:15 AM - Ghamharia</li>
-              <li>Hostel J - 8:30 AM - Bistupur</li>
-              <li>Hostel K - 8:45 AM - Sakchi</li>
+              <li>Hostel I - 8:00 AM - Chandil Dam</li>
+              <li>Hostel J - 10:00 AM - Ghamharia</li>
+              <li>Hostel K - 2:00 PM - Bistupur</li>
+              <li>Hostel D - 5:00 PM - Sakchi</li>
             </ul>
           </CardContent>
         </Card>
@@ -84,7 +87,7 @@ export default function SmartTransportSystem() {
             <QrCode size={48} className="text-blue-700 mb-2" />
             <p className="text-center text-sm text-gray-700">Scan QR Code at bus entry point to validate your ID</p>
             <div className="mt-2 w-32 h-32 bg-gray-300 flex items-center justify-center rounded">
-              <span className="text-sm text-gray-600"><img src="qr.jpg" alt="QR Code" /></span>
+              <img src="/qr.jpg" alt="QR Code" className="w-full h-full object-cover rounded" />
             </div>
           </CardContent>
         </Card>
@@ -92,7 +95,7 @@ export default function SmartTransportSystem() {
 
       {/* Footer */}
       <footer className="mt-10 text-sm text-gray-600">
-        <MapPin className="inline mr-1" size={16} /> Developed by AMIT CHANCHAL (CSE Student), NIT Jamshedpur
+        <MapPin className="inline mr-1" size={16} /> Developed by AMIT CHANCHAL (CSE UNDERGRADE), NIT Jamshedpur
       </footer>
     </div>
   );
